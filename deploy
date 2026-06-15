@@ -1,0 +1,23 @@
+#!/bin/bash
+
+cd ~/moera/java-moeralib-jvm
+
+mvn clean package || exit 1
+[ -d deployment ] && rm -r deployment
+mkdir deployment
+cp target/moeralib-jvm-*.jar deployment
+JARNAME=`ls -1 deployment | head -1`
+NAME=${JARNAME%%.jar}
+VERSION=${NAME##moeralib-jvm-}
+cp pom.xml deployment/${NAME}.pom
+
+cd deployment
+for s in *.jar *.pom; do
+    md5sum $s | cut -d ' ' -f 1-1 > $s.md5
+    sha1sum $s | cut -d ' ' -f 1-1 > $s.sha1
+    gpg -ab $s
+done
+
+mkdir -p org/moera/moeralib-jvm/$VERSION
+mv *.* org/moera/moeralib-jvm/$VERSION
+zip -r ${NAME}.zip org/
