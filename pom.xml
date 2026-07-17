@@ -5,7 +5,7 @@
 
     <groupId>org.moera</groupId>
     <artifactId>moeralib-jvm</artifactId>
-    <version>0.18.6</version>
+    <version>0.18.7</version>
 
     <name>moeralib-jvm</name>
     <description>JVM-specific bindings for the Moera Java library</description>
@@ -35,7 +35,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <moeralib.version>0.18.6</moeralib.version>
+        <moeralib.version>0.18.7</moeralib.version>
     </properties>
 
     <dependencyManagement>
