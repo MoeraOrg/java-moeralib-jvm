@@ -10,11 +10,20 @@ interfaces in `moeralib`:
 
 ## Maven
 
+The core library and the JVM bindings are versioned independently. Add both
+dependencies explicitly and select compatible versions:
+
 ```xml
 <dependency>
     <groupId>org.moera</groupId>
+    <artifactId>moeralib</artifactId>
+    <version>0.18.9.1</version>
+</dependency>
+
+<dependency>
+    <groupId>org.moera</groupId>
     <artifactId>moeralib-jvm</artifactId>
-    <version>0.18.6</version>
+    <version>0.18.9</version>
 </dependency>
 ```
 
